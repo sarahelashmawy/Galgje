@@ -42,13 +42,7 @@ while vast == True:
                 if amount == 0:
                     break            
             else:
-                gevonden = False
-
-        if gevonden == False:
-            raad += 1
-
-        else:
-            gevonden = False
+                gevonden = False        
             
         gekozen.append(keuze)
 
@@ -65,6 +59,12 @@ while vast == True:
             print(keuze + " komt niet voor in het woord\n")
             print("Je hebt de volgende letters gekozen:\n")
             print(gekozen)
+
+        if gevonden == False:
+            raad += 1
+
+        else:
+            gevonden = False
 
         print(veld)
 
