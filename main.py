@@ -1,6 +1,9 @@
+import random 
+
 woorden = ["informatica","informatiekunde","spelletje","aardigheidje","scholier","fotografie","waardebepaling","specialiteit","verzekering","universiteit","heesterperk"]
 
-woord = woorden[0]
+woord = random.choice(woorden)
+
 
 raad = 0
 kanzen = 5
