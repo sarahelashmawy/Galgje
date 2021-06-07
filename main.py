@@ -4,7 +4,6 @@ woorden = ["informatica","informatiekunde","spelletje","aardigheidje","scholier"
 
 woord = random.choice(woorden)
 
-
 raad = 0
 kanzen = 5
 gevonden = False
@@ -46,11 +45,7 @@ while vast == True:
             
         gekozen.append(keuze)
 
-    #Letters in word    
-        if lijstwoord == veld:
-            print("Je hebt alle letters geraden!")
-            break
-
+    #Letters in word   
         if gevonden == True:
             print(keuze + " komt voor in het woord\n")
             print("Je hebt de volgende letters gekozen:\n")
@@ -69,4 +64,15 @@ while vast == True:
         print(veld)
 
         print(100*"-")
+
+       if lijstwoord == veld :
+         print("Je hebt alle letters geraden!")
+             
+         opnieuw = input("Wil je opnieuw spelen?\n")
+            if opnieuw == "ja"
+             continue
+
+            else : 
+              print("Dankje wel voor het spelen")
+              break
 
