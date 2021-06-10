@@ -58,11 +58,16 @@ while vast == True:
   # Alleen 1 letter invoeren
     if len(keuze) > 1:
       print("Je kan alleen 1 letter invoeren!")
+      print("Je hebt nog " + str(kanzen - raad) + " keren om het woord te raden.\n")
+      if gevonden == False:
+        raad += 1
+        continue
 
   #Alleen letters, geen getallen  
     elif not re.match("^[a-z]*$", keuze):
      print("Er kunnen geen cijfers worden geraden, alleen letters. Probeer het opnieuw! ")
-
+     continue   
+  
   #Letters in word   
     if gevonden == True:
         print(keuze + " komt voor in het woord\n")
