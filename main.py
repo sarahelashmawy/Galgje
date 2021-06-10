@@ -3,15 +3,8 @@ import re
 
 woorden = ["informatica","informatiekunde","spelletje","aardigheidje","scholier","fotografie","waardebepaling","specialiteit","verzekering","universiteit","heesterperk"]
 
-#woord = woorden[0]
-#woord = random.choice(woorden)
-#print (woord)
-#woord = woorden[k]
-#print(woord)
-
 raad = 1
 kanzen = 5
-raden = kanzen - raad
 gevonden = False
 correct = False
 amount = 0
@@ -31,9 +24,13 @@ while vast == True:
   
   #print (woord)
   lijstwoord = list(woord)
-  if begin == "JA":
+  if begin == "JA" or begin == "ja" or begin == "Ja":
     for x in range (len(lijstwoord)):
         veld.append("_")
+  
+  else:
+    print("Bedankt voor het niet spelen ;)")
+    break
     
   while raad <= kanzen and lijstwoord != veld:
     keuze = input("Noem een letter:\n")
@@ -47,40 +44,36 @@ while vast == True:
     for i in range (len(lijstwoord)):
         
         if lijstwoord[i] == keuze:
-            veld[i] = keuze
-            gevonden = True
-            amount -= 1
-            if amount == 0:
-                break            
-        else:
+          veld[i] = keuze
+          gevonden = True
+          amount -= 1
+          if amount == 0:
+            break            
+         else:
             gevonden = False 
 
-    gekozen.append(keuze) 
+    gekozen.append(keuze)
+    gekozen.sort() 
  
   # Alleen 1 letter invoeren
     if len(keuze) > 1:
       print("Je kan alleen 1 letter invoeren!")
-      print("Je hebt nog " + str(raden) + " keren om het woord te raden.")
-      print( ) 
-      if gevonden == False:
-       raad += 1
-      continue  
-      continue
+
 
   #Alleen letters, geen getallen  
     elif not re.match("^[a-z]*$", keuze):
      print("Er kunnen geen cijfers worden geraden, alleen letters. Probeer het opnieuw! ")
-     continue
 
   #Letters in word   
     if gevonden == True:
         print(keuze + " komt voor in het woord\n")
         print("Je hebt de volgende letters gekozen:\n")
-        print(sorted(gekozen))
+        print(gekozen)
     elif gevonden == False:
-        print(keuze + " komt niet voor in het woord\n")
+        print(keuze + " komt niet voor in het woord")
+        print("Je hebt nog " + str(kanzen - raad) + " keren om het woord te raden.\n")
         print("Je hebt de volgende letters gekozen:\n")
-        print(sorted(gekozen))
+        print(gekozen)
 
     if gevonden == False:
         raad += 1
@@ -97,10 +90,10 @@ while vast == True:
     print(100*"-")
   if raad > kanzen:
     print("Jammer. Je hebt het woord niet geraden.") 
-    raad = 0      
+    raad = 1      
 
   opnieuw = input("Wil je opnieuw spelen? JA of NEE?\n")
 
-  if opnieuw == "NEE":             
+  if opnieuw == "NEE" or opnieuw == "nee" or opnieuw == "Nee":             
     print("Dankje wel voor het spelen")
     break
