@@ -1,4 +1,5 @@
 import random
+import re 
 
 woorden = ["informatica","informatiekunde","spelletje","aardigheidje","scholier","fotografie","waardebepaling","specialiteit","verzekering","universiteit","heesterperk"]
 
@@ -60,16 +61,18 @@ while vast == True:
     if len(keuze) > 1:
       print("Je kan alleen 1 letter invoeren!")
       print("Je hebt nog " + str(raden) + " keren om het woord te raden.")
-      print( )
-    if gevonden == False:
-      raad += 1
-      continue   
+      print( ) 
+      if gevonden == False:
+       raad += 1
+      continue  
+      continue
 
   #Alleen letters, geen getallen  
-   if   
+    elif not re.match("^[a-z]*$", keuze):
+     print("Er kunnen geen cijfers worden geraden, alleen letters. Probeer het opnieuw! ")
+     continue
 
   #Letters in word   
-
     if gevonden == True:
         print(keuze + " komt voor in het woord\n")
         print("Je hebt de volgende letters gekozen:\n")
@@ -96,8 +99,8 @@ while vast == True:
     print("Jammer. Je hebt het woord niet geraden.") 
     raad = 0      
 
-  opnieuw = input("Wil je opnieuw spelen?JA of NEE?\n")
+  opnieuw = input("Wil je opnieuw spelen? JA of NEE?\n")
 
-  if opnieuw == "nee":             
+  if opnieuw == "NEE":             
     print("Dankje wel voor het spelen")
     break
