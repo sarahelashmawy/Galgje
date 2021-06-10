@@ -76,11 +76,11 @@ while vast == True:
     if gevonden == True:
         print(keuze + " komt voor in het woord\n")
         print("Je hebt de volgende letters gekozen:\n")
-        print(gekozen)
+        print(sorted(gekozen))
     elif gevonden == False:
         print(keuze + " komt niet voor in het woord\n")
         print("Je hebt de volgende letters gekozen:\n")
-        print(gekozen)
+        print(sorted(gekozen))
 
     if gevonden == False:
         raad += 1
