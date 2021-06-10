@@ -62,7 +62,6 @@ while vast == True:
   #Alleen letters, geen getallen  
     elif not re.match("^[a-z]*$", keuze):
      print("Er kunnen geen cijfers worden geraden, alleen letters. Probeer het opnieuw! ")
-     continue
 
   #Letters in word   
     if gevonden == True:
@@ -83,6 +82,7 @@ while vast == True:
 
     if lijstwoord == veld:
       print("Je hebt alle letters geraden! Gefeliciteerd!")
+      print("Het woord was '" + (woord) + "'")
       break
 
     print(veld)
@@ -90,6 +90,7 @@ while vast == True:
     print(100*"-")
   if raad > kanzen:
     print("Jammer. Je hebt het woord niet geraden.") 
+    print("Het woord was '" + (woord) + "'")
     raad = 1      
 
   opnieuw = input("Wil je opnieuw spelen? JA of NEE?\n")
