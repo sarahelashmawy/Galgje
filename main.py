@@ -2,7 +2,11 @@ import random
 
 woorden = ["informatica","informatiekunde","spelletje","aardigheidje","scholier","fotografie","waardebepaling","specialiteit","verzekering","universiteit","heesterperk"]
 
-woord = random.choice(woorden)
+#woord = woorden[0]
+#woord = random.choice(woorden)
+#print (woord)
+#woord = woorden[k]
+#print(woord)
 
 raad = 0
 kanzen = 5
@@ -13,66 +17,72 @@ vast = True
 
 gekozen = []
 veld = []
-lijstwoord = list(woord)
+
 
 print("Welkom bij galgje! Het gaat erom dat je door de computer gekozen woord gaat raden. Maar pas op, je aantal levens zijn beperkt. Raad het woord voordat je levens op zijn!")
 
+begin = input("Wil je beginnen?\n")
 while vast == True:
-
-  begin = input("Wil je beginnen?\n")
+  veld.clear()
+  gekozen.clear()
+  woord = random.choice(woorden)
+  #print (woord)
+  lijstwoord = list(woord)
   if begin == "ja":
     for x in range (len(lijstwoord)):
         veld.append("_")
+    
 
-    while raad <= kanzen and lijstwoord != veld:
-        keuze = input("Noem een letter:\n")
+  while raad <= kanzen and lijstwoord != veld:
+    keuze = input("Noem een letter:\n")
 
-    #check for letter
-        for z in range (len(lijstwoord)):
-            if lijstwoord[z] == keuze:
-                amount += 1
-                
-        for i in range (len(lijstwoord)):
+  #check for letter
+    for z in range (len(lijstwoord)):
+        if lijstwoord[z] == keuze:
+            amount += 1
             
-            if lijstwoord[i] == keuze:
-                veld[i] = keuze
-                gevonden = True
-                amount -= 1
-                if amount == 0:
-                    break            
-            else:
-                gevonden = False        
-            
-        gekozen.append(keuze)
-
-    #Letters in word   
-        if gevonden == True:
-            print(keuze + " komt voor in het woord\n")
-            print("Je hebt de volgende letters gekozen:\n")
-            print(gekozen)
-        elif gevonden == False:
-            print(keuze + " komt niet voor in het woord\n")
-            print("Je hebt de volgende letters gekozen:\n")
-            print(gekozen)
-
-        if gevonden == False:
-            raad += 1
-
+    for i in range (len(lijstwoord)):
+        
+        if lijstwoord[i] == keuze:
+            veld[i] = keuze
+            gevonden = True
+            amount -= 1
+            if amount == 0:
+                break            
         else:
-            gevonden = False
+            gevonden = False        
+        
+    gekozen.append(keuze)
 
-        print(veld)
+  #Letters in word   
+    if gevonden == True:
+        print(keuze + " komt voor in het woord\n")
+        print("Je hebt de volgende letters gekozen:\n")
+        print(gekozen)
+    elif gevonden == False:
+        print(keuze + " komt niet voor in het woord\n")
+        print("Je hebt de volgende letters gekozen:\n")
+        print(gekozen)
 
-        print(100*"-")
+    if gevonden == False:
+        raad += 1
 
-       if lijstwoord == veld :
-         print("Je hebt alle letters geraden!")
-             
-         opnieuw = input("Wil je opnieuw spelen?\n")
-            if opnieuw == "ja"
-             continue
+    else:
+        gevonden = False
 
-            else : 
-              print("Dankje wel voor het spelen")
-              break
+    if lijstwoord == veld :
+      print("Je hebt alle letters geraden! Gefeliciteerd!")
+      break
 
+    print(veld)
+
+    print(100*"-")
+  if raad > kanzen:
+    print("Jammer. Je hebt het woord niet geraden.") 
+    raad = 0      
+
+  opnieuw = input("Wil je opnieuw spelen?\n")
+
+  if opnieuw == "nee":             
+    print("Dankje wel voor het spelen")
+    break
