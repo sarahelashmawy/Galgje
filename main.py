@@ -49,7 +49,7 @@ while vast == True:
           amount -= 1
           if amount == 0:
             break            
-         else:
+          else:
             gevonden = False 
 
     gekozen.append(keuze)
@@ -59,10 +59,10 @@ while vast == True:
     if len(keuze) > 1:
       print("Je kan alleen 1 letter invoeren!")
 
-
   #Alleen letters, geen getallen  
     elif not re.match("^[a-z]*$", keuze):
      print("Er kunnen geen cijfers worden geraden, alleen letters. Probeer het opnieuw! ")
+     continue
 
   #Letters in word   
     if gevonden == True:
