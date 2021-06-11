@@ -19,8 +19,7 @@ gekozen = []
 veld = []
 
 
-print("Welkom bij galgje! Het gaat erom dat je door de computer gekozen woord gaat raden. Maar pas op, je aantal levens zijn beperkt. Raad het woord voordat je levens op zijn!")
-print( )
+print("Welkom bij galgje! Het gaat erom dat je door de computer gekozen woord gaat raden. Maar pas op, je aantal levens zijn beperkt. Raad het woord voordat je levens op zijn!\n")
 
 begin = input("Wil je beginnen? JA of NEE?\n")
 while vast == True:
@@ -121,11 +120,12 @@ while vast == True:
   else:
     beginy = input("Wil je opnieuw spelen? JA of NEE?\n")
 
-  if beginy == "NEE" or beginy == "nee" or beginy == "Nee":            
-    print("Dankje wel voor het spelen")
-    break
-  elif beginy == "JA" or beginy == "Ja" or beginy == "ja":
+  if beginy == "NEE" or beginy == "nee" or beginy == "Nee" or beginy =="":            
+    print("")
+
+  elif beginy == "JA" or beginy == "Ja" or beginy == "ja" or beginy == "":
     beginyx = True
+
   else:
     print("Je invoer is incorrect, probeer het nogmaals.")
     while beginy != "JA" and beginy != "Ja" and beginy != "ja"\
@@ -133,3 +133,7 @@ while vast == True:
       beginy = input("Wil je opnieuw beginnen? JA of NEE?\n")
     opnieuwx = False
     beginyx = False
+
+  if beginy == "NEE" or beginy == "nee" or beginy == "Nee":          
+    print("Dankje wel voor het spelen")
+    break
