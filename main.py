@@ -9,6 +9,11 @@ gevonden = False
 correct = False
 amount = 0
 vast = True
+beginx = False
+beginxy = False
+opnieuwx = False
+beginy = ""
+beginyx = ""
 
 gekozen = []
 veld = []
@@ -24,15 +29,22 @@ while vast == True:
   
   #print (woord)
   lijstwoord = list(woord)
-  if begin == "JA" or begin == "ja" or begin == "Ja":
+  if begin == "JA" or begin == "ja" or begin == "Ja" or beginy == "JA" or beginy == "ja" or beginy == "Ja":
+    beginx = True
     for x in range (len(lijstwoord)):
         veld.append("_")
   
-  else:
+  elif begin == "NEE" or begin == "nee" or begin == "Nee"\
+  or beginy == "NEE" or beginy == "nee" or beginy == "Nee":
     print("Bedankt voor het niet spelen ;)")
     break
+  
+  else:
+    print("Je keuze bestaat niet, probeer het nogmaals.")
+    opnieuwx = True
     
-  while raad <= kanzen and lijstwoord != veld:
+    
+  while raad <= kanzen and lijstwoord != veld and (beginx == True or beginyx == True):
     keuze = input("Noem een letter:\n")
     
 
@@ -98,8 +110,20 @@ while vast == True:
     print("Het woord was '" + (woord) + "'")
     raad = 1      
 
-  opnieuw = input("Wil je opnieuw spelen? JA of NEE?\n")
+  if opnieuwx == True:
+    while begin != "JA" and begin != "Ja" and begin != "ja"\
+    and begin != "NEE" and begin != "Nee" and begin != "nee":
+      begin = input("Wil je beginnen? JA of NEE?\n")
+    opnieuwx = False
 
-  if opnieuw == "NEE" or opnieuw == "nee" or opnieuw == "Nee":             
+    opnieuwx = False
+  else:
+    beginy = input("Wil je opnieuw spelen? JA of NEE?\n")
+
+  if beginy == "NEE" or beginy == "nee" or beginy == "Nee":            
     print("Dankje wel voor het spelen")
     break
+  elif beginy == "JA" or beginy == "Ja" or beginy == "ja":
+    beginyx = True
+  else:
+    beginyx = False
