@@ -126,4 +126,9 @@ while vast == True:
   elif beginy == "JA" or beginy == "Ja" or beginy == "ja":
     beginyx = True
   else:
+    print("Je invoer is incorrect, probeer het nogmaals.")
+    while beginy != "JA" and beginy != "Ja" and beginy != "ja"\
+    and beginy != "NEE" and beginy != "Nee" and beginy != "nee":
+      beginy = input("Wil je opnieuw beginnen? JA of NEE?\n")
+    opnieuwx = False
     beginyx = False
